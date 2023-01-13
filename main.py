@@ -46,6 +46,20 @@ async def kill(ctx, user: discord.Member = None):
 async def kill_error(ctx, error):
     if isinstance(error, discord.ext.commands.BadArgument):
         await ctx.send(random.choice(deal.kill_fails))
+
+
+# REVIVE
+@bot.command(aliases=['save', 'rev'])
+async def revive(ctx, user: discord.Member = None):
+    if user:
+        await ctx.send(deal.revive(ctx.author.mention, user.mention))
+
+
+@revive.error
+async def revive_error(ctx, error):
+    if isinstance(error, discord.ext.commands.BadArgument):
+        await ctx.send(random.choice(deal.revive_fails))
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 
