@@ -33,6 +33,12 @@ async def rr(ctx):
     await ctx.send(deal.rr(ctx.author.mention))
 
 
+@rr.error
+async def rr_error(ctx, error):
+    if isinstance(error, discord.ext.commands.CommandError):
+        await ctx.send(random.choice(deal.rr_fails))
+
+
 # KILL
 @bot.command(aliases=['murder', 'assassinate', 'attack'])
 async def kill(ctx, user: discord.Member = None):

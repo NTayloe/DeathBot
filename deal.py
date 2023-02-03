@@ -1,6 +1,15 @@
 import json
 import random
-# random.randrange(3, 9) includes 3 but not 9
+
+
+def rr(user):
+    num = random.randrange(1, 7)  # includes 1 but not 7
+    if num == 3:
+        return f"{user} aims a revolver with a single round in the cylinder at their head and pulls the trigger. " \
+               f"They forgot to spin the cylinder before shooting, so the gun goes off and they die immediately."
+    else:
+        return f"{user} puts a cartridge in the cylinder of their revolver, spins it, pulls the trigger, " \
+               f"and doesn't blow their head off."
 
 
 def kill(killer, victim):
@@ -25,8 +34,14 @@ def revive(reviver, revivee):
             return f"{reviver} tried to use a miracle needle, but missed the vein and revived a nearby plant instead."
 
 
-weapons = ["sword", "knife", "hammer"]
+# WEAPONS AND ITEMS
+weapons = ["sword", "knife", "hammer", "toothpick", "battleaxe", "n arrow", "machine gun", "rocket launcher"]
+weapons_weird = ["n electric toothbrush", "n orange", ""]
 
+# FAILED COMMAND MESSAGES
+rr_fails = ["You're doing it all wrong!",
+            "You don't need an argument, doofus.",
+            "You've clearly never played Russian Roulette before.."]
 kill_fails = ["You're trying to kill something that isn't a valid user in this server...a bold but ineffective move.",
               "You can't kill that!",
               "You can only kill real people, not your imaginary friends.",
